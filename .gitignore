@@ -1,0 +1,26 @@
+# Compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution/packaging
+*.egg-info/
+dist/
+build/
+sdist/
+wheels/
+
+# Environments
+.env
+.venv
+venv/
+env/
+
+# IDE/editor files
+.idea/
+.vscode/
+*.swp
+
+# Poetry specific
+poetry.lock
