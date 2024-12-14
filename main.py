@@ -3,6 +3,13 @@ from langchain_openai import ChatOpenAI
 from langchain.schema.output_parser import StrOutputParser
 from prompts.aoc_prompt_template import aoc_prompt_template
 from agents.agent import ChallengeAgent
+from branches.branch import define_branches
+from prompts.classification import classification_template
+
+# debugging tools
+# from langchain.globals import set_debug, set_verbose
+# set_debug(True)
+# set_verbose(True)
 
 # load environment variables from .env file
 load_dotenv()
@@ -12,11 +19,14 @@ llm = ChatOpenAI(
     model="gpt-4o", temperature=0
 )
 
-# create our custom agent
-challenge_agent = ChallengeAgent(llm, aoc_prompt_template)
+# initialize branches
+branches = define_branches(llm)
 
-# create the chain
-chain = challenge_agent | StrOutputParser()
+# create classification chain
+classification_chain = classification_template | llm | StrOutputParser()
+
+# create our chain
+chain = classification_chain | branches
 
 # chat loop
 while True:
