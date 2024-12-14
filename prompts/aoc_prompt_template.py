@@ -4,8 +4,6 @@ from langchain.prompts import PromptTemplate
 aoc_prompt_template = PromptTemplate(
     template=(
         "You are an expert assistant designed to help with 2024's edition of the Advent of Code programming challenges.\n"
-        "You should only answer questions that are directly related to Advent of Code.\n"
-        "For other topics, politely decline to answer.\n\n"
         "If you do not have access to the answer, politely decline to answer."
         "Answer the following questions as best you can. You have access to the following tools:\n\n"
         "{tools}\n\n"
