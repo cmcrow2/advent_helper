@@ -6,9 +6,12 @@ classification_template = ChatPromptTemplate.from_messages(
         (
             "human",
             "If the user asks a question about a solution to a particular day and part,  classify the question as \"solution\".\n"
-            "If the user asks a question about a prompt or problem for a particular day or part, classify the question as \"prompt\"\n"
+            # "If the user asks a question about a prompt or problem for a particular day or part, classify the question as \"prompt\"\n"
             "If the user asks a question about any other topic, classify the question as \"other\".\n\n"
-            "Here is the question you need to classify: {question}"
+            "Here is the question you need to classify: {input}\n\n"
+            "Here is the format for your output:\n"
+            "Classification: your classification here.\n"
+            "Question to answer: repeat the user's question here"
         ),
     ]
 )
