@@ -13,7 +13,7 @@ llm = ChatOpenAI(
 )
 
 # create our custom agent
-challenge_agent = ChallengeAgent(llm)
+challenge_agent = ChallengeAgent(llm, aoc_prompt_template)
 
 # create the chain
 chain = challenge_agent | StrOutputParser()

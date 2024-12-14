@@ -1,13 +1,13 @@
 from tools.all_tools import tools
-from prompts.aoc_prompt_template import aoc_prompt_template
 from langchain.agents import AgentExecutor, create_react_agent
 
 
 class ChallengeAgent:
     '''This agent will return the answer to a particular AoC Challenge'''
 
-    def __init__(self, llm):
+    def __init__(self, llm, template):
         self.llm = llm
+        self.template = template
 
     def __call__(self, query):
 
@@ -15,7 +15,7 @@ class ChallengeAgent:
         agent = create_react_agent(
             llm=self.llm,
             tools=tools,
-            prompt=aoc_prompt_template,
+            prompt=self.template,
             stop_sequence=True,
         )
 
