@@ -4,10 +4,10 @@ from langchain.schema.output_parser import StrOutputParser
 from prompts.aoc_prompt_template import aoc_prompt_template
 from agents.agent import ChallengeAgent
 
-# Load environment variables from .env file
+# load environment variables from .env file
 load_dotenv()
 
-# Initialize a ChatOpenAI model
+# initialize a ChatOpenAI model
 llm = ChatOpenAI(
     model="gpt-4o", temperature=0
 )
@@ -18,14 +18,14 @@ challenge_agent = ChallengeAgent(llm, aoc_prompt_template)
 # create the chain
 chain = challenge_agent | StrOutputParser()
 
-# Chat loop
+# chat loop
 while True:
-    # Get user input
+    # get user input
     query = input("You: ")
     if query.lower() == "exit":
         break
 
-    # Pass the query directly to the agent
+    # pass the query directly to the agent
     try:
         response = chain.invoke({"input": query})
         print(f"AI: {response}")

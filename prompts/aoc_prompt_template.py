@@ -1,6 +1,6 @@
 from langchain.prompts import PromptTemplate
 
-# Define the prompt template
+# define the prompt template
 aoc_prompt_template = PromptTemplate(
     template=(
         "You are an expert assistant designed to help with 2024's edition of the Advent of Code programming challenges.\n"
@@ -21,6 +21,6 @@ aoc_prompt_template = PromptTemplate(
         "Question: {input}\n"
         "Thought:{agent_scratchpad}"
     ),
-    # This allows dynamic insertion of tool descriptions
+    # this allows dynamic insertion of tool descriptions
     input_variables=["agent_scratchpad", "tools", "tool_names"],
 )

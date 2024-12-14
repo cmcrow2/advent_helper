@@ -11,7 +11,7 @@ class ChallengeAgent:
 
     def __call__(self, query):
 
-        # Create the ReAct agent using the create_react_agent function
+        # create the ReAct agent using the create_react_agent function
         agent = create_react_agent(
             llm=self.llm,
             tools=tools,
@@ -19,7 +19,7 @@ class ChallengeAgent:
             stop_sequence=True,
         )
 
-        # Create an agent executor from the agent and tools
+        # create an agent executor from the agent and tools
         agent_executor = AgentExecutor.from_agent_and_tools(
             agent=agent,
             tools=tools,
